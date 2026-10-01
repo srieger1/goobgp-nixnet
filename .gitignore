@@ -1,0 +1,8 @@
+# Experiment output (workDir) and flake build results
+/out/
+/result
+/result-*
+
+# Local clones used as reference while porting the lab
+/gobgp/
+/nixnet/

@@ -1,0 +1,148 @@
+{
+  "nodes": {
+    "flake-parts": {
+      "inputs": {
+        "nixpkgs-lib": "nixpkgs-lib"
+      },
+      "locked": {
+        "lastModified": 1788450739,
+        "narHash": "sha256-glZLQlzIn1fXH6PazR2iUmTo7kzzyYSshrWhLS9TqCU=",
+        "ref": "refs/heads/main",
+        "rev": "31729ca8cbdb4fa927b34e5f4353e6a83f39e993",
+        "revCount": 494,
+        "type": "git",
+        "url": "https://github.com/hercules-ci/flake-parts"
+      },
+      "original": {
+        "type": "git",
+        "url": "https://github.com/hercules-ci/flake-parts"
+      }
+    },
+    "flake-parts_2": {
+      "inputs": {
+        "nixpkgs-lib": "nixpkgs-lib_2"
+      },
+      "locked": {
+        "lastModified": 1769996383,
+        "narHash": "sha256-AnYjnFWgS49RlqX7LrC4uA+sCCDBj0Ry/WOJ5XWAsa0=",
+        "owner": "hercules-ci",
+        "repo": "flake-parts",
+        "rev": "57928607ea566b5db3ad13af0e57e921e6b12381",
+        "type": "github"
+      },
+      "original": {
+        "owner": "hercules-ci",
+        "repo": "flake-parts",
+        "type": "github"
+      }
+    },
+    "gobgp-src": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1790784440,
+        "narHash": "sha256-fENAHI9hCJYUTK/28XqXwFcI/7TdASaa0riBGxWeovo=",
+        "ref": "obgp-fixes",
+        "rev": "761af9248f4e62851175230d8ee0d41f523daf1d",
+        "revCount": 3699,
+        "type": "git",
+        "url": "https://github.com/Stinktopf/gobgp"
+      },
+      "original": {
+        "ref": "obgp-fixes",
+        "type": "git",
+        "url": "https://github.com/Stinktopf/gobgp"
+      }
+    },
+    "nixnet": {
+      "inputs": {
+        "flake-parts": "flake-parts_2",
+        "nixpkgs": "nixpkgs"
+      },
+      "locked": {
+        "lastModified": 1788484877,
+        "narHash": "sha256-qKUf7FNCmwSBb8qQv6FYtqzNFPbreHpsmzsMJZHtHj0=",
+        "ref": "refs/heads/main",
+        "rev": "a7e3191fe6979495aa96479267b1f96252122a72",
+        "revCount": 89,
+        "type": "git",
+        "url": "https://github.com/birneee/nixnet"
+      },
+      "original": {
+        "type": "git",
+        "url": "https://github.com/birneee/nixnet"
+      }
+    },
+    "nixpkgs": {
+      "locked": {
+        "lastModified": 1780243769,
+        "narHash": "sha256-x5UQuRsH3MqI0U9afaXSNqzTPSeZlRLvFAav2Ux1pNw=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "331800de5053fcebacf6813adb5db9c9dca22a0c",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs-lib": {
+      "locked": {
+        "lastModified": 1788057806,
+        "narHash": "sha256-DTQSMxzDWmT0zhguthvegnVkn7CFqGCv4IHCzk5ZUpM=",
+        "owner": "nix-community",
+        "repo": "nixpkgs.lib",
+        "rev": "596e2e3940e09b2abbeb03f75fa1828c57fcd72c",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "nixpkgs.lib",
+        "type": "github"
+      }
+    },
+    "nixpkgs-lib_2": {
+      "locked": {
+        "lastModified": 1769909678,
+        "narHash": "sha256-cBEymOf4/o3FD5AZnzC3J9hLbiZ+QDT/KDuyHXVJOpM=",
+        "owner": "nix-community",
+        "repo": "nixpkgs.lib",
+        "rev": "72716169fe93074c333e8d0173151350670b824c",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "nixpkgs.lib",
+        "type": "github"
+      }
+    },
+    "nixpkgs_2": {
+      "locked": {
+        "lastModified": 1790689126,
+        "narHash": "sha256-ilerN1WLSvF+HMjziC/Wv99J5y02maDH+6hZPwsORKg=",
+        "ref": "nixos-unstable",
+        "rev": "b4fd65b198c599cbe814fcb9f42d25d021595ec9",
+        "revCount": 1082427,
+        "type": "git",
+        "url": "https://github.com/NixOS/nixpkgs"
+      },
+      "original": {
+        "ref": "nixos-unstable",
+        "type": "git",
+        "url": "https://github.com/NixOS/nixpkgs"
+      }
+    },
+    "root": {
+      "inputs": {
+        "flake-parts": "flake-parts",
+        "gobgp-src": "gobgp-src",
+        "nixnet": "nixnet",
+        "nixpkgs": "nixpkgs_2"
+      }
+    }
+  },
+  "root": "root",
+  "version": 7
+}
