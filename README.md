@@ -171,6 +171,6 @@ run index increments if the directory exists):
   lists the four GoBGP tests that fail with OBGP enabled by design.
 - OBGP's superset pruning is on by default; `GOBGP_OPERA_PRUNING=0` (or
   `false`) turns it off, alongside `GOBGP_OPERA_ENABLED`, which selects the
-  variant.
+  variant. The runs reported here use the default.
 - `gobgpd` needs to bind port 179; nixnet sets `ip_unprivileged_port_start=0`
   inside the nodes, so no root is required.
