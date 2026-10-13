@@ -102,9 +102,9 @@ topology is oscillating.
 
 The metric is the first path of the router's Loc-RIB for the prefix: GoBGP
 keeps the Loc-RIB sorted most preferred first, and OBGP keeps the standard
-order, so that entry is the local best path. (The `best` flag in the gRPC
-`ListPath` response is not populated in this fork, so the position, not the
-flag, identifies the path.)
+order, so that entry is the local best path. The `best` flag of the gRPC
+`ListPath` response marks the same path, but the scripts compare positions, not
+flags, so the sampling also works against older daemon builds.
 
 ### Observed runs
 
@@ -169,5 +169,8 @@ run index increments if the directory exists):
 - OBGP applies to IPv4/IPv6 unicast only, rejects `AS_SET` and confederations,
   and does not support Add-Path export or route server mode; the fork's README
   lists the four GoBGP tests that fail with OBGP enabled by design.
+- OBGP's superset pruning is on by default; `GOBGP_OPERA_PRUNING=0` (or
+  `false`) turns it off, alongside `GOBGP_OPERA_ENABLED`, which selects the
+  variant.
 - `gobgpd` needs to bind port 179; nixnet sets `ip_unprivileged_port_start=0`
   inside the nodes, so no root is required.
