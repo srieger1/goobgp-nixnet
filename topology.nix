@@ -1,5 +1,5 @@
 # The BAD GADGET topology of the OBGP lab, ported from
-# gobgp-lab/topologies/bad-gadget.yaml of Stinktopf/gobgp (branch obgp-fixes).
+# gobgp-lab/topologies/bad-gadget.yaml of Stinktopf/gobgp (branch master).
 #
 # Four routers, one eBGP session per pair (6 links), and a cyclic preference
 # order: frankfurt prefers routes learned from fulda, toronto those from

@@ -1,4 +1,4 @@
-# The OBGP fork of GoBGP (github.com/Stinktopf/gobgp, branch obgp-fixes).
+# The OBGP fork of GoBGP (github.com/Stinktopf/gobgp, branch master).
 #
 # The daemon is plain GoBGP unless GOBGP_OPERA_ENABLED is "1" or "true", so one
 # build provides both variants the experiment compares.

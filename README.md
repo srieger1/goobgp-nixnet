@@ -1,7 +1,7 @@
 # gobgp on NixNet
 
 A [NixNet](https://github.com/birneee/nixnet) environment for the OBGP fork of
-GoBGP ([Stinktopf/gobgp, branch `obgp-fixes`](https://github.com/Stinktopf/gobgp/tree/obgp-fixes)):
+GoBGP ([Stinktopf/gobgp, branch `master`](https://github.com/Stinktopf/gobgp/tree/master)):
 the BAD GADGET topology of that fork's own lab, one `gobgpd` per router in its
 own Linux network namespace, and a scenario that shows whether the routers
 settle on a stable best path.
@@ -28,7 +28,7 @@ The OBGP daemon is built from the fork at the revision `flake.lock` pins
 Four routers in four ASes, one eBGP session per pair (six links, three sessions
 per router, one point-to-point link each). The router IDs, ASNs, and the cyclic
 preference that makes this topology a BAD GADGET come from
-[`gobgp-lab/topologies/bad-gadget.yaml`](https://github.com/Stinktopf/gobgp/blob/obgp-fixes/gobgp-lab/topologies/bad-gadget.yaml):
+[`gobgp-lab/topologies/bad-gadget.yaml`](https://github.com/Stinktopf/gobgp/blob/master/gobgp-lab/topologies/bad-gadget.yaml):
 frankfurt prefers routes learned from fulda, toronto those from frankfurt, fulda
 those from toronto. `aachen` originates the observed prefix.
 
@@ -109,22 +109,22 @@ flag, identifies the path.)
 ### Observed runs
 
 Both variants, same topology, `nix run .#bgp` and `nix run .` on a single
-machine:
+machine, with the daemon from the revision `flake.lock` pins:
 
 ```
 plain GoBGP: best path and Loc-RIB size for 10.99.0.0/24, sampled every 0.25s over 30s
 router      samples  changes  states paths min/avg/max  known  path (last | distinct, in order)
-aachen          117        1       2      1/   1.0/    1    109  0.0.0.0 | - | 0.0.0.0
-frankfurt       117       70       4      1/   2.0/    3    109  10.10.4.2 65003 65004 | - | 10.10.4.2 65003 65002 65004 | 10.10.4.2 65003 65004 | 10.10.1.1 65004
-fulda           117       72       4      1/   2.2/    3    109  10.10.6.2 65002 65004 | - | 10.10.2.1 65004 | 10.10.6.2 65002 65001 65004 | 10.10.6.2 65002 65004
-toronto         116       70       4      1/   1.9/    3    108  10.10.5.1 65001 65004 | - | 10.10.3.1 65004 | 10.10.5.1 65001 65004 | 10.10.5.1 65001 65003 65004
+aachen          116        1       2      1/   1.0/    1    108  0.0.0.0 | - | 0.0.0.0
+frankfurt       116       60       4      1/   2.1/    3    108  10.10.4.2 65003 65002 65004 | - | 10.10.4.2 65003 65002 65004 | 10.10.1.1 65004 | 10.10.4.2 65003 65004
+fulda           116       71       4      1/   2.1/    3    108  10.10.2.1 65004 | - | 10.10.2.1 65004 | 10.10.6.2 65002 65004 | 10.10.6.2 65002 65001 65004
+toronto         116       73       4      1/   1.8/    3    108  10.10.3.1 65004 | - | 10.10.3.1 65004 | 10.10.5.1 65001 65004 | 10.10.5.1 65001 65003 65004
 
 OBGP: best path and Loc-RIB size for 10.99.0.0/24, sampled every 0.25s over 30s
 router      samples  changes  states paths min/avg/max  known  path (last | distinct, in order)
-aachen          118        1       2      1/   1.0/    1    110  0.0.0.0 | - | 0.0.0.0
-frankfurt       118        1       2      1/   1.0/    1    110  10.10.1.1 65004 | - | 10.10.1.1 65004
-fulda           118        1       2      1/   1.0/    1    110  10.10.2.1 65004 | - | 10.10.2.1 65004
-toronto         118        1       2      1/   1.0/    1    110  10.10.3.1 65004 | - | 10.10.3.1 65004
+aachen          117        1       2      1/   1.0/    1    109  0.0.0.0 | - | 0.0.0.0
+frankfurt       117        1       2      1/   1.0/    1    109  10.10.1.1 65004 | - | 10.10.1.1 65004
+fulda           117        1       2      1/   1.0/    1    109  10.10.2.1 65004 | - | 10.10.2.1 65004
+toronto         117        1       2      1/   1.0/    1    109  10.10.3.1 65004 | - | 10.10.3.1 65004
 ```
 
 Plain GoBGP never settles: the path via the preferred neighbor is re-advertised

@@ -6,7 +6,7 @@
     flake-parts.url = "git+https://github.com/hercules-ci/flake-parts";
     nixnet.url = "git+https://github.com/birneee/nixnet";
     gobgp-src = {
-      url = "git+https://github.com/Stinktopf/gobgp?ref=obgp-fixes";
+      url = "git+https://github.com/Stinktopf/gobgp?ref=master";
       flake = false;
     };
   };

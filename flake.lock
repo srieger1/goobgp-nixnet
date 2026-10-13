@@ -39,16 +39,16 @@
     "gobgp-src": {
       "flake": false,
       "locked": {
-        "lastModified": 1790784440,
-        "narHash": "sha256-fENAHI9hCJYUTK/28XqXwFcI/7TdASaa0riBGxWeovo=",
-        "ref": "obgp-fixes",
-        "rev": "761af9248f4e62851175230d8ee0d41f523daf1d",
-        "revCount": 3699,
+        "lastModified": 1791078896,
+        "narHash": "sha256-B0P+H1va78HIZNfLNwkbvxs7f5SIxb0qx/jyEu0DGtc=",
+        "ref": "master",
+        "rev": "843c4dfe35060e3ba075ed34a0b0d192770bfebb",
+        "revCount": 3684,
         "type": "git",
         "url": "https://github.com/Stinktopf/gobgp"
       },
       "original": {
-        "ref": "obgp-fixes",
+        "ref": "master",
         "type": "git",
         "url": "https://github.com/Stinktopf/gobgp"
       }
